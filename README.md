@@ -10,7 +10,9 @@ currently paraeter is set for the included RPI PICO board. if you have upgraded 
 
 1. clone this repo somewhere
 
+~~~
 git clone <this repos url>
+~~~
 
 2. Inside the folder...
 
