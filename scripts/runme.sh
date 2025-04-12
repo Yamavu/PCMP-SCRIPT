@@ -17,19 +17,20 @@ fi
 
 git clone https://github.com/micropython/micropython
 
-cp $project_dir/PicoCalc-micropython-driver/pico_files/fbconsole.py ./micropython/ports/rp2/modules
-cp $project_dir/PicoCalc-micropython-driver/pico_files/picocalc.py ./micropython/ports/rp2/modules
+cd $project_dir
+cp ./PicoCalc-micropython-driver/pico_files/fbconsole.py ./micropython/ports/rp2/modules
+cp ./PicoCalc-micropython-driver/pico_files/picocalc.py ./micropython/ports/rp2/modules
 
 cd $project_dir
 cd micropython/ports/rp2
 git submodule update --init --recursive
 
-
 if [ -d build ]; then
     rm -rf build
 fi
 
-mkdir build && cd build
+mkdir build
+cd build
 
 cmake .. \
     -DUSER_C_MODULES="$project_dir/PicoCalc-micropython-driver/micropython.cmake" \
@@ -39,6 +40,11 @@ cmake .. \
 #    RPI_PICO2
 #    RPI_PICO2_W
 
-make
-
 bash <(wget -O - https://thonny.org/installer-for-linux )
+
+cd $project_dir
+mkdir transfer
+
+cp micropython/ports/rp2/build/firmware.uf2 $project_dir/transfer/
+cp PicoCalc-micropython-driver/pico_files/* $project_dir/transfer/
+

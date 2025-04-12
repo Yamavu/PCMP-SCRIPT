@@ -1,8 +1,8 @@
 # PCMP-script
 
-an MIT licensed bash script to automatically download everything ncessary to get micropython running on your clockwork-pi picocalc. 
+script to automatically download everything ncessary to get micropython running on your clockwork-pi picocalc. 
 
-pretty simple, but less error prone than manually doing the steps.
+an MIT licensed. pretty simple, but less error prone than manually doing the steps.
 
 based on the instructions you can find here: https://github.com/zenodante/PicoCalc-micropython-driver
 
@@ -10,18 +10,25 @@ works on ubuntu with python and git installed, should work from windows WSL, let
 
 currently parameter is set for the included RPI PICO board. if you have upgraded to a RPI2 or RPI2W, edit line 36 from RPI_PICO to RPI_PICO2 or RPI_PICO2_W
  
+![](./images/micropython-picocalc.jpg)
 
 
 
 ## Steps
 
-1. clone this repo somewhere
+### Step 1 
+
+- Clone this repo somewhere
 
 ~~~
 git clone <this repos url>
 ~~~
 
-2. Inside the folder...
+### Step 2 
+ 
+ For a complete install, pulling all the various repos and building them this step will take a few minutes.
+ 
+ Inside the folder...
 
 ~~~
 cd build
@@ -30,16 +37,22 @@ cd build
 
 There will be a couple of times when you have to press ENTER or type Y to accept.
 
-3. Use BOOTSEL and Thonny to move the files over to your PicoCalc in the usual way. Not managed to automate this step yet.
+The script will generate a uf2 and a number of py files in a dir called transfer
 
+### Step 3 
 
+Use BOOTSEL button to move the file "./transfer/firmware.uf2" over to your PicoCalc in the usual way. 
+
+### Step 4 
+
+Use Thonny to move the file assorted "./transfer/*.py" files over to your PicoCalc using its GUI. 
+    
 
 ## TODO
 
-[ ] Update the script so it only carries out steps if they are necessary.
-    [ ] Only Pull and Compile the Repos if Out of Date
-    [ ] Install Thonny only if missing 
-
+* Update the script so it only carries out steps if they are necessary.
+* Only Pull and Compile the Repos if Out of Date
+* Install Thonny only if missing 
 
 ## Thanks
 
