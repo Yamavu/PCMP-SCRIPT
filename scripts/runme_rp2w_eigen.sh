@@ -24,6 +24,9 @@ fi
 if [ ! -d "$PCMP_driver_dir" ]; then
     git clone https://github.com/zenodante/PicoCalc-micropython-driver $PCMP_driver_dir
 fi
+if [ ! -d "$PCMP_driver_dir/eigenmath_micropython" ]; then
+    git clone https://github.com/zenodante/eigenmath_micropython.git "$PCMP_driver_dir/eigenmath_micropython"
+fi
 
 cp "$PCMP_driver_dir"/pico_files/modules/*.py "$uPY_dir/ports/rp2/modules"
 
@@ -56,5 +59,3 @@ if [ ! -f "$project_dir/transfer/firmware.uf2" ]; then
     make && \
     cp "$uPY_dir/ports/rp2/build/firmware.uf2" $project_dir/transfer
 fi
-
-
