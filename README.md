@@ -1,6 +1,8 @@
 # PCMP-script
 
-This is a Bash script to automatically download everything ncessary to get micropython running on your clockwork-pi picocalc. 
+This is a Bash script to automatically download everything ncessary to get micropython running on your clockwork-pi picocalc.
+
+**There are issues still, edit() doesn't work sometimes or it crashes the CLI. There seem to be some SPI interference connecting to the keyboard (I'm running firmware 1.2 cause 1.4 seems to be worse for now)**
 
 This script supports the complilation targets:
 - `RPI_PICO` for Raspberry Pi Pico using RP2040 chipset
